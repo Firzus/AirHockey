@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+AirHockey.vcxproj
+AirHockey.vcxproj.filters
+AirHockey.vcxproj.user

@@ -15,4 +15,5 @@ public:
 
 private:
     sf::RenderWindow m_window;
+    //Board* board;
 };

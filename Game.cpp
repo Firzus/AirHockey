@@ -1,8 +1,10 @@
 #include "Game.h"
+#include "Board.h"
 
 Game::Game() : m_window(sf::VideoMode(500, 800), "AirHockey")
 {
     m_window.setFramerateLimit(60);
+    //Board* board = new Board();
 }
 
 void Game::Run()
@@ -37,6 +39,6 @@ void Game::Update()
 void Game::Render()
 {
     m_window.clear();
-
+    //board->Render(m_window);
     m_window.display();
 }

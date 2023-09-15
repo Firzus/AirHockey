@@ -46,7 +46,7 @@ void Game::ProcessEvents()
             break;
         }
 
-
+        // Test
     }
 }
 
@@ -55,6 +55,8 @@ void Game::Update()
     if (isGameRunning)
     {
        updateEntities(m_window);
+
+
     }
 }
 

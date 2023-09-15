@@ -19,7 +19,5 @@ public:
 
 	void Draw();
 	void Render(sf::RenderWindow& rw);
-
-
 };
 

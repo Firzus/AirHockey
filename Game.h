@@ -1,8 +1,15 @@
 #pragma once
 
-#include <iostream>
-#include "Board.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <vector>
+
+#include "Board.h"
+#include "Player.h"
+#include "Ball.h"
+#include "Entity.h"
+
+using namespace std;
 
 class Game
 {
@@ -14,7 +21,12 @@ public:
     void Update();
     void Render();
 
+    void initEntities();
+    void renderEntites(sf::RenderWindow& rw);
+
 private:
     sf::RenderWindow m_window;
     Board board;
+    vector<Entity*> entities;
+
 };

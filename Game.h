@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Board.h"
 #include <SFML/Graphics.hpp>
 
 class Game
@@ -15,5 +16,5 @@ public:
 
 private:
     sf::RenderWindow m_window;
-    //Board* board;
+    Board board;
 };

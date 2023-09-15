@@ -138,6 +138,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,7 +146,19 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="font\Orbitron-Black.ttf" />
+    <Font Include="font\Orbitron-Bold.ttf" />
+    <Font Include="font\Orbitron-ExtraBold.ttf" />
+    <Font Include="font\Orbitron-Medium.ttf" />
+    <Font Include="font\Orbitron-Regular.ttf" />
+    <Font Include="font\Orbitron-SemiBold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="asset\sprite\menu_sprite.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

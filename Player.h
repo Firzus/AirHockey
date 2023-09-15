@@ -8,6 +8,8 @@ private:
 	bool isDragging;
 	sf::Vector2f minBounds;
 	sf::Vector2f maxBounds;
+	sf::Vector2f oppMinBounds;
+	sf::Vector2f oppMaxBounds;
 
 public:
 	Player(bool isOpponent);

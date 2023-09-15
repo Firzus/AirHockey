@@ -93,5 +93,6 @@ void Game::processPlayerEvent(sf::RenderWindow& rw, sf::Mouse::Button mouse, boo
         if (!(*it)->getBall() && (*it)->getPlayer() && !(*it)->getOpponent()) {
             (*it)->processEvent(rw, mouse, isPress);
         }
+
     }
 }

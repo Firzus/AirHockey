@@ -29,14 +29,11 @@ void Game::ProcessEvents()
                     isGameRunning = true;
                 }
             }
-
             processPlayerEvent(m_window, event.mouseButton.button, true);
-
         }
 
         if (event.type == sf::Event::MouseButtonReleased) {
             processPlayerEvent(m_window, event.mouseButton.button, false);
-
         }
 
         switch (event.type)
@@ -55,8 +52,6 @@ void Game::Update()
     if (isGameRunning)
     {
        updateEntities(m_window);
-
-
     }
 }
 

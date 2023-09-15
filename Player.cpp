@@ -15,6 +15,11 @@ Player::Player(bool isOpponent) {
 		this->color = sf::Color(62, 228, 255);
 		this-> pos = sf::Vector2f(200, 770);
 	}
+	this->minBounds = sf::Vector2f(30, 600);
+	this->maxBounds = sf::Vector2f(minBounds.x + 440, minBounds.y + 200);
+
+	this->oppMinBounds = sf::Vector2f(30, 0);
+	this->oppMaxBounds = sf::Vector2f(minBounds.x + 440, minBounds.y + 200);
 
 	Draw();
 }
@@ -31,8 +36,11 @@ void Player::Update(sf::RenderWindow& rw) {
 	if (isDragging) {
 		sf::Vector2i mousePos = sf::Mouse::getPosition(rw);
 		cout << mousePos.x << ", " << mousePos.y << endl;
-		player.setPosition(sf::Vector2f(mousePos.x, mousePos.y));
-	}
+		float x = max(minBounds.x, min(maxBounds.x - size.x, static_cast<float>(mousePos.x)));
+		float y = max(minBounds.y, min(maxBounds.y - size.y, static_cast<float>(mousePos.y)));
+		sf::Vector2f newPos(x, y);
+		player.setPosition(newPos);
+	} 
 }
 
 void Player::Render(sf::RenderWindow& rw) {
@@ -46,12 +54,12 @@ void Player::processEvent(sf::RenderWindow& rw, sf::Mouse::Button mouse, bool is
 			sf::FloatRect playerBounds = player.getGlobalBounds();
 			if (playerBounds.contains(static_cast<sf::Vector2f>(mousePos))) {
 				isDragging = true;
+				rw.setMouseCursorVisible(false);
 			}
 		}
 	}
 	else {
 		isDragging = false;
+		rw.setMouseCursorVisible(true);
 	}
-
-
 }

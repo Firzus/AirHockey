@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+#include "Menu.h"
 #include "Board.h"
 #include "Player.h"
 #include "Ball.h"
@@ -23,6 +24,7 @@ public:
 
 private:
     sf::RenderWindow m_window;
+    Menu menu;
     Board board;
     vector<Entity*> entities;
 
@@ -30,5 +32,5 @@ private:
     void renderEntities(sf::RenderWindow& rw);
     void updateEntities(sf::RenderWindow& rw);
     void processPlayerEvent(sf::RenderWindow& rw, sf::Mouse::Button mouse, bool isPress);
-
+    bool isGameRunning;
 };

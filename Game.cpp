@@ -3,6 +3,7 @@
 Game::Game() : m_window(sf::VideoMode(500, 800), "AirHockey")
 {
     m_window.setFramerateLimit(60);
+    isGameRunning = false;
     new Board();
     initEntities();
 }
@@ -22,6 +23,14 @@ void Game::ProcessEvents()
     sf::Event event;
     while (m_window.pollEvent(event))
     {
+        if (event.type == sf::Event::MouseButtonPressed) {
+            if (event.mouseButton.button == sf::Mouse::Left) {
+                if (!isGameRunning) {
+                    isGameRunning = true;
+                }
+            }
+        }
+
         switch (event.type)
         {
         case sf::Event::Closed:
@@ -43,16 +52,25 @@ void Game::ProcessEvents()
 
 void Game::Update()
 {
-    updateEntities(m_window);
+    if (isGameRunning)
+    {
+       updateEntities(m_window);
+    }
 }
 
 void Game::Render()
 {
-    m_window.clear();
-    board.Render(m_window);
-    renderEntities(m_window);
-    updateEntities(m_window);
-    m_window.display();
+    if (isGameRunning)
+    {
+        m_window.clear();
+        board.Render(m_window);
+        renderEntites(m_window);
+        m_window.display();
+    }
+    else
+    {
+        menu.Render(m_window);
+    }
 }
 
 void Game::initEntities() {

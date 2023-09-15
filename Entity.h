@@ -9,6 +9,7 @@ class Entity
 protected:
 	sf::CircleShape ball;
 	sf::RectangleShape player;
+	sf::Vector2f pos;
 
 	float radius;
 	sf::Vector2f size;

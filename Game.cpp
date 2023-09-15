@@ -64,7 +64,7 @@ void Game::Render()
     {
         m_window.clear();
         board.Render(m_window);
-        renderEntites(m_window);
+        renderEntities(m_window);
         m_window.display();
     }
     else

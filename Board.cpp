@@ -13,7 +13,6 @@ Board::~Board() {}
 
 void Board::Draw() {
 	background.setFillColor(bgColor);
-	background.setPosition(0, 0);
 	background.setSize(bgSize);
 
 	hBorder.setFillColor(borderColor);
@@ -21,12 +20,29 @@ void Board::Draw() {
 
 	wBorder.setFillColor(borderColor);
 	wBorder.setSize(wSize);
-
 }
 
 void Board::Render(sf::RenderWindow& rw) {
 	rw.draw(background);
-	rw.draw(hBorder);
-	rw.draw(wBorder);
 
+	sf::RectangleShape leftHeightBorder = hBorder;
+	sf::RectangleShape rightHeightBorder = hBorder;
+
+	sf::RectangleShape topWidthBorder = wBorder;
+	sf::RectangleShape midWidthBorder = wBorder;
+	sf::RectangleShape botWidthBorder = wBorder;
+
+	leftHeightBorder.setPosition(0, 0);
+	rightHeightBorder.setPosition(470, 0);
+
+	topWidthBorder.setPosition(30, 120);
+	midWidthBorder.setPosition(30, 398);
+	botWidthBorder.setPosition(30, 675);
+
+	rw.draw(leftHeightBorder);
+	rw.draw(rightHeightBorder);
+
+	rw.draw(topWidthBorder);
+	rw.draw(midWidthBorder);
+	rw.draw(botWidthBorder);
 }

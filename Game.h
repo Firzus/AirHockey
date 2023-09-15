@@ -22,14 +22,15 @@ public:
     void Update();
     void Render();
 
-    void initEntities();
-    void renderEntites(sf::RenderWindow& rw);
-
 private:
     sf::RenderWindow m_window;
     Menu menu;
     Board board;
     vector<Entity*> entities;
 
+    void initEntities();
+    void renderEntities(sf::RenderWindow& rw);
+    void updateEntities(sf::RenderWindow& rw);
+    void processPlayerEvent(sf::RenderWindow& rw, sf::Mouse::Button mouse, bool isPress);
     bool isGameRunning;
 };

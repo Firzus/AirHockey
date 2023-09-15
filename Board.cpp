@@ -35,9 +35,9 @@ void Board::Render(sf::RenderWindow& rw) {
 	leftHeightBorder.setPosition(0, 0);
 	rightHeightBorder.setPosition(470, 0);
 
-	topWidthBorder.setPosition(30, 120);
+	topWidthBorder.setPosition(30, 200);
 	midWidthBorder.setPosition(30, 398);
-	botWidthBorder.setPosition(30, 675);
+	botWidthBorder.setPosition(30, 595);
 
 	rw.draw(leftHeightBorder);
 	rw.draw(rightHeightBorder);

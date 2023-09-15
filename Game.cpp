@@ -36,7 +36,17 @@ void Game::ProcessEvents()
         case sf::Event::Closed:
             m_window.close();
             break;
+        
+        case sf::Event::MouseButtonPressed:
+            processPlayerEvent(m_window, event.mouseButton.button, true);
+            break;
+
+        case sf::Event::MouseButtonReleased:
+            processPlayerEvent(m_window, event.mouseButton.button, false);
+            break;
         }
+
+
     }
 }
 
@@ -44,7 +54,7 @@ void Game::Update()
 {
     if (isGameRunning)
     {
-        // update
+       updateEntities(m_window);
     }
 }
 
@@ -69,8 +79,22 @@ void Game::initEntities() {
     entities.push_back(new Ball());
 }
 
-void Game::renderEntites(sf::RenderWindow& rw) {
+void Game::renderEntities(sf::RenderWindow& rw) {
     for (auto it = entities.begin(); it != entities.end(); it++) {
         (*it)->Render(rw);
+    }
+}
+
+void Game::updateEntities(sf::RenderWindow& rw) {
+    for (auto it = entities.begin(); it != entities.end(); it++) {
+        (*it)->Update(rw);
+    }
+}
+
+void Game::processPlayerEvent(sf::RenderWindow& rw, sf::Mouse::Button mouse, bool isPress) {
+    for (auto it = entities.begin(); it != entities.end(); it++) {
+        if ((*it)->getBall() && !(*it)->getPlayer() && !(*it)->getOpponent()) {
+            (*it)->processEvent(rw, mouse, isPress);
+        }
     }
 }
